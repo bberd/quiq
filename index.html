@@ -9,15 +9,13 @@
         const originalLocation = window.location;
         console.log(`originalLocation: ${originalLocation}`)
 
-        // Mock specific properties
-        Object.defineProperty(window, 'location', {
-          value: {
-            href: 'https://staging2.urbanoutfitters.com/en-gb/',
-            hostname: 'staging2.urbanoutfitters.com',
-            pathname: '/en-gb/products/shirt',
-          },
-          writable: true
-        });
+        delete window.location;
+        window.location = {
+          href: 'https://staging2.urbanoutfitters.com/en-gb/',
+          hostname: 'staging2.urbanoutfitters.com',
+          pathname: '/en-gb/'
+        };
+        console.log(`newLocation: ${window.location}`)
         
 
 
@@ -74,6 +72,6 @@
 
         
      </script>
-     quiq test page
+     quiq test page v1.0.1
 </body>
 </html>
