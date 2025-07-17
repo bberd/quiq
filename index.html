@@ -1,25 +1,79 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kfcus-stage.quiq-api.com/app/chat-ui/index.js" charset="UTF-8"></script>
-    <style>
-        body {
-            background-position: center center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin: 0; /* Add this to remove default margins */
-        }
-
-    </style>
+    <script src="https://urbn-sandbox.quiq-api.com/app/chat-ui/index.js" charset="UTF-8"></script>
 </head>
 
 <body>
     <script>
-       var chat = Quiq({
-           pageConfigurationId: 'customer-support-testing'
-       });
- </script>
-hello and welcome to this page. owned by boris.
+        const originalLocation = window.location;
+        console.log(`originalLocation: ${originalLocation}`)
+
+        // Mock specific properties
+        Object.defineProperty(window, 'location', {
+          value: {
+            href: 'https://staging2.urbanoutfitters.com/en-gb/',
+            hostname: 'staging2.urbanoutfitters.com',
+            pathname: '/en-gb/products/shirt',
+          },
+          writable: true
+        });
+        
+
+
+        function extractBrandFromHostname(hostname) {
+          // Extract brand name/conversation starter from hostname
+          // production/staging sites
+          const parts = hostname.split('.com')[0]?.split('.');
+          const cleanHostname = parts[parts.length - 1];
+        
+          const brandMap = {
+            'urbanoutfitters': 'urban-outfitters',
+            'anthropologie': 'anthropologie',
+            'freepeople': 'free-people',
+            'shopterrain': 'terrain'
+          };
+        
+          return brandMap[cleanHostname] || '';
+        }
+        
+        function extractLangLocale(pathname) {
+          // Match lang-locale pattern immediately after .com/
+          // Handles both /en-gb/ and /en-gb
+          const localeMatch = pathname.match(/^\/([a-z]{2}-[a-z]{2})(?:\/|$)/i);
+        
+          if (localeMatch) {
+            const fullLocale = localeMatch[1].toLowerCase();
+            const lang = fullLocale.split('-')[0];
+            const locale = fullLocale.split('-')[1];
+        
+            return {
+              lang: lang,
+              locale: locale
+            };
+          }
+        
+          return {
+            lang: 'en',
+            locale: 'us'
+          };
+        }
+        
+        
+        const brand = extractBrandFromHostname(window.location.hostname);
+        const { lang, locale } = extractLangLocale(window.location.pathname);
+        console.log('Loading conversation starter for URL:', brand, lang, locale );
+        
+        
+        let chat = Quiq({ pageConfigurationId: brand });
+        chat.setChatRegistrationField('schema.conversation.custom.brand', brand);
+        chat.setChatRegistrationField('schema.conversation.custom.lang', lang);
+        chat.setChatRegistrationField('schema.conversation.custom.locale', locale);
+        // if (customerEmail) chat.setChatRegistrationField('schema.conversation.customer.custom.email', customerEmail);
+
+
+        
+     </script>
+     quiq test page
 </body>
 </html>
