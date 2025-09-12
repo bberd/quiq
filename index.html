@@ -1,74 +1,500 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://urbn-sandbox.quiq-api.com/app/chat-ui/index.js" charset="UTF-8"></script>
+    <script src="https://boris.quiq-api.com/app/webchat/index.js" charset="UTF-8"></script>
 </head>
 
 <body>
     <script>
-        console.log(`window.location.hostname: ${window.location.hostname}`)
-        console.log(`window.location.pathname: ${window.location.pathname}`)
+      window.chat = Quiq({
+        contactPoint: 'ai-studio'
+      });
+    dataLayer = [
+    {
+        "event": "OneTrustLoaded",
+        "OnetrustActiveGroups": ",C0001,C0003,C0002,C0007,C0004,C0005,C0008,C0009,C0010,",
+        "gtm.uniqueEventId": 3
+    },
+    {
+        "event": "OptanonLoaded",
+        "OptanonActiveGroups": ",C0001,C0003,C0002,C0007,C0004,C0005,C0008,C0009,C0010,",
+        "gtm.uniqueEventId": 22
+    },
+    {
+        "event": "OneTrustGroupsUpdated",
+        "OnetrustActiveGroups": ",C0001,C0003,C0002,C0007,C0004,C0005,C0008,C0009,C0010,",
+        "gtm.uniqueEventId": 29
+    },
+    {
+        "event": "OneTrustLoaded",
+        "OnetrustActiveGroups": ",C0001,C0003,C0002,C0007,C0004,C0005,C0008,C0009,C0010,",
+        "gtm.uniqueEventId": 36
+    },
+    {
+        "event": "OptanonLoaded",
+        "OptanonActiveGroups": ",C0001,C0003,C0002,C0007,C0004,C0005,C0008,C0009,C0010,",
+        "gtm.uniqueEventId": 43
+    },
+    {
+        "event": "kameleoon_experiment",
+        "campaign_name": "LR: Survey Usabilla (mobile only)",
+        "campaign_id": 291439,
+        "variation_name": "variation 1",
+        "variation_id": 1073180,
+        "gtm.uniqueEventId": 50
+    },
+    {
+        "event": "experience_impression",
+        "exp_variant_string": "KAM-291439-1073180",
+        "kam_campaign_name": "LR: Survey Usabilla (mobile only)",
+        "kam_campaign_id": 291439,
+        "kam_variation_name": "variation 1",
+        "kam_variation_id": 1073180,
+        "gtm.uniqueEventId": 57
+    },
+    {
+        "event": "experience_impression",
+        "exp_variant_string": "KAM-326771-1155058",
+        "kam_campaign_name": "LR: cookie go NGA (PROD)",
+        "kam_campaign_id": 326771,
+        "kam_variation_name": "Variation 1",
+        "kam_variation_id": 1155058,
+        "gtm.uniqueEventId": 64
+    },
+    {
+        "event": "kameleoon_experiment",
+        "campaign_name": "Sofitel : Hotel Price Widget",
+        "campaign_id": 329981,
+        "variation_name": "Variation 1",
+        "variation_id": 1163786,
+        "gtm.uniqueEventId": 71
+    },
+    {
+        "event": "experience_impression",
+        "exp_variant_string": "KAM-329981-1163786",
+        "kam_campaign_name": "Sofitel : Hotel Price Widget",
+        "kam_campaign_id": 329981,
+        "kam_variation_name": "Variation 1",
+        "kam_variation_id": 1163786,
+        "gtm.uniqueEventId": 78
+    },
+    {
+        "gtm.start": 1757710250725,
+        "event": "gtm.js",
+        "gtm.uniqueEventId": 85
+    },
+    {
+        "event": "GA4event",
+        "eventName": "convert_remote_config_loaded",
+        "event_data": {
+            "pagename": "remote_config",
+            "feature_flags": [
+                {
+                    "feature_name": "feature_1",
+                    "feature_value": true
+                },
+                {
+                    "feature_name": "feature_2",
+                    "feature_value": true
+                },
+                {
+                    "feature_name": "feature_3",
+                    "feature_value": true
+                },
+                {
+                    "feature_name": "redirect_fh_to_nga",
+                    "feature_value": false
+                },
+                {
+                    "feature_name": "price_calendar",
+                    "feature_value": true
+                },
+                {
+                    "feature_name": "multi_room",
+                    "feature_value": true
+                },
+                {
+                    "feature_name": "price_calendar_fh",
+                    "feature_value": false
+                },
+                {
+                    "feature_name": "redirect_summary_to_payment_legacy",
+                    "feature_value": true
+                },
+                {
+                    "feature_name": "redirect_for_dayuse",
+                    "feature_value": false
+                }
+            ]
+        },
+        "gtm.uniqueEventId": 92
+    },
+    {
+        "event": "gtm.dom",
+        "gtm.uniqueEventId": 99
+    },
+    {
+        "event": "kameleoon_experiment",
+        "campaign_name": "LR: Survey Usabilla (mobile only)",
+        "campaign_id": 291439,
+        "variation_name": "variation 1",
+        "variation_id": 1073180,
+        "gtm.uniqueEventId": 117
+    },
+    {
+        "event": "experience_impression",
+        "exp_variant_string": "KAM-291439-1073180",
+        "kam_campaign_name": "LR: Survey Usabilla (mobile only)",
+        "kam_campaign_id": 291439,
+        "kam_variation_name": "variation 1",
+        "kam_variation_id": 1073180,
+        "gtm.uniqueEventId": 126
+    },
+    {
+        "event": "experience_impression",
+        "exp_variant_string": "KAM-326771-1155058",
+        "kam_campaign_name": "LR: cookie go NGA (PROD)",
+        "kam_campaign_id": 326771,
+        "kam_variation_name": "Variation 1",
+        "kam_variation_id": 1155058,
+        "gtm.uniqueEventId": 135
+    },
+    {
+        "event": "kameleoon_experiment",
+        "campaign_name": "Sofitel : Hotel Price Widget",
+        "campaign_id": 329981,
+        "variation_name": "Variation 1",
+        "variation_id": 1163786,
+        "gtm.uniqueEventId": 144
+    },
+    {
+        "event": "experience_impression",
+        "exp_variant_string": "KAM-329981-1163786",
+        "kam_campaign_name": "Sofitel : Hotel Price Widget",
+        "kam_campaign_id": 329981,
+        "kam_variation_name": "Variation 1",
+        "kam_variation_id": 1163786,
+        "gtm.uniqueEventId": 153
+    },
+    {
+        "event": "gtm.load",
+        "gtm.uniqueEventId": 162
+    },
+    {
+        "event_data": null
+    },
+    {
+        "event": "GA4event",
+        "eventName": "extended_search",
+        "event_data": {
+            "pagename": "results::standard::list",
+            "cta_name": "display"
+        },
+        "gtm.uniqueEventId": 171
+    },
+    {
+        "b2bbookingcontext": "",
+        "category": "results",
+        "clienttype": "B2C",
+        "countrycurrencycode": "USD",
+        "hotelcurrencycode": "",
+        "hotelbrandcode": "",
+        "hotelbrandname": "",
+        "hotelcitycode": "",
+        "hotelcityname": "",
+        "hotelcode": "",
+        "hotelcountrycode": "",
+        "hotelcountryname": "",
+        "hotelgssrating": "",
+        "hotelname": "",
+        "hoteltripadvisorrating": "",
+        "mainstepindicator": 1,
+        "offercode": "",
+        "pagetype": "",
+        "partnerdeduplication": 0,
+        "partners_name": "",
+        "partners_type": "",
+        "roomcode": "",
+        "searchcriteriaarrivaldate": "16-09-2025",
+        "searchcriteriacitycode": "P.BOX68278",
+        "searchcriteriacityname": "Dubai",
+        "searchcriteriacountrycode": "AE",
+        "searchcriteriacountryname": "UNITED ARAB EMIRATES",
+        "searchcriteriadeparturedate": "24-09-2025",
+        "searchcriteriadestination": "warsan-spain-cluster-dubai-united-arab-emirates",
+        "searchcriteriahotelratingclass": "",
+        "searchcriteriauseb2bcode": false,
+        "searchresultsdetails": [
+            {
+                "searchresultscallcountryprice": 0,
+                "searchresultscallprice": 0,
+                "searchresultsdetailshotelbrandcode": "IBS",
+                "searchresultsdetailshotelbrandname": "",
+                "searchresultsdetailshotelcode": "9633",
+                "searchresultsdetailsoffercode": "",
+                "searchresultsdetailspositioninpage": 1,
+                "searchresultsdistancefromdestination": 2070,
+                "searchresultshotelcurrencycode": "USD",
+                "searchresultshoteladdress": "Ibis Styles Dragon Mart, Al Awir Road E44 on Hatta Road",
+                "searchresultshotelname": "ibis Styles Dragon Mart Dubai",
+                "searchresultshotelratingclass": 3,
+                "searchresultsoffer": ""
+            }
+        ],
+        "sub_category_level1": "standard",
+        "sub_category_level2": "list",
+        "sub_category_level3": "",
+        "sub_category_level4": "",
+        "transactionId": "",
+        "ui_snu": "",
+        "virtual_page_path": "",
+        "event": "push_dynamic_datas",
+        "dynamic_datas_ready": true,
+        "language": "en",
+        "countrymarket": "us",
+        "devicetype": "desktop",
+        "currencycode": "USD",
+        "userId": "",
+        "brandcontext": "ALL",
+        "env": "production",
+        "gacid": "",
+        "uamerchantid": "AH",
+        "uasourceid": "AH",
+        "tarsmerchantid": "AH",
+        "tarssourceid": "AH",
+        "partner_id": "",
+        "hmGUID": "",
+        "qt_tracking_id": "",
+        "advertiser_id": "",
+        "trvReference": "",
+        "locale": "",
+        "refId": "",
+        "kayakclickid": "",
+        "mainstepname": "list",
+        "pagename": "results::standard::list",
+        "datefieldempty": false,
+        "loyaltycardtypes": "",
+        "searchcriteriareservercontract": "",
+        "searchcriteriareserverid": "",
+        "searchcriterianumberadult": 1,
+        "searchcriterianumberchildren": 0,
+        "searchcriterianumbernights": 8,
+        "searchcriterianumberrooms": 1,
+        "searchcriteriatype": "neighborhood",
+        "numberofresults": 1,
+        "searchresultsclassification": [
+            "PREFERRED",
+            "AVAILABILITY",
+            "CHANNEL",
+            "DISTANCE"
+        ],
+        "uilogged": false,
+        "uicity": "",
+        "uicountry": "",
+        "uiallmember": "not logged",
+        "uiloyaltypoints": "",
+        "newsletteroptin": false,
+        "uiemailsha256": "",
+        "uisnu_activation": "not connected",
+        "uistayplus_activation": "not connected",
+        "user_data": {
+            "userId": "",
+            "uilogged": false,
+            "uicity": "",
+            "uicountry": "",
+            "uiallmember": "not logged",
+            "uiloyaltypoints": "",
+            "newsletteroptin": false,
+            "clienttype": "B2C",
+            "uiemailsha256": "",
+            "loyaltycardtypes": "",
+            "uisnu_activation": "not connected",
+            "uistayplus_activation": "not connected"
+        },
+        "page_data": {
+            "b2bbookingcontext": "",
+            "category": "results",
+            "clienttype": "B2C",
+            "countrycurrencycode": "USD",
+            "hotelcurrencycode": "",
+            "hotelbrandcode": "",
+            "hotelbrandname": "",
+            "hotelcitycode": "",
+            "hotelcityname": "",
+            "hotelcode": "",
+            "hotelcountrycode": "",
+            "hotelcountryname": "",
+            "hotelgssrating": "",
+            "hotelname": "",
+            "hoteltripadvisorrating": "",
+            "mainstepindicator": 1,
+            "offercode": "",
+            "pagetype": "",
+            "partnerdeduplication": 0,
+            "partners_name": "",
+            "partners_type": "",
+            "roomcode": "",
+            "searchcriteriaarrivaldate": "16-09-2025",
+            "searchcriteriacitycode": "P.BOX68278",
+            "searchcriteriacityname": "Dubai",
+            "searchcriteriacountrycode": "AE",
+            "searchcriteriacountryname": "UNITED ARAB EMIRATES",
+            "searchcriteriadeparturedate": "24-09-2025",
+            "searchcriteriadestination": "warsan-spain-cluster-dubai-united-arab-emirates",
+            "searchcriteriahotelratingclass": "",
+            "searchcriteriauseb2bcode": false,
+            "searchresultsdetails": [
+                {
+                    "searchresultscallcountryprice": 0,
+                    "searchresultscallprice": 0,
+                    "searchresultsdetailshotelbrandcode": "IBS",
+                    "searchresultsdetailshotelbrandname": "",
+                    "searchresultsdetailshotelcode": "9633",
+                    "searchresultsdetailsoffercode": "",
+                    "searchresultsdetailspositioninpage": 1,
+                    "searchresultsdistancefromdestination": 2070,
+                    "searchresultshotelcurrencycode": "USD",
+                    "searchresultshoteladdress": "Ibis Styles Dragon Mart, Al Awir Road E44 on Hatta Road",
+                    "searchresultshotelname": "ibis Styles Dragon Mart Dubai",
+                    "searchresultshotelratingclass": 3,
+                    "searchresultsoffer": ""
+                }
+            ],
+            "sub_category_level1": "standard",
+            "sub_category_level2": "list",
+            "sub_category_level3": "",
+            "sub_category_level4": "",
+            "transactionId": "",
+            "ui_snu": "",
+            "virtual_page_path": "",
+            "event": "push_dynamic_datas",
+            "dynamic_datas_ready": true,
+            "language": "en",
+            "countrymarket": "us",
+            "devicetype": "desktop",
+            "currencycode": "USD",
+            "userId": "",
+            "brandcontext": "ALL",
+            "env": "production",
+            "gacid": "",
+            "uamerchantid": "AH",
+            "uasourceid": "AH",
+            "tarsmerchantid": "AH",
+            "tarssourceid": "AH",
+            "partner_id": "",
+            "hmGUID": "",
+            "qt_tracking_id": "",
+            "advertiser_id": "",
+            "trvReference": "",
+            "locale": "",
+            "refId": "",
+            "kayakclickid": "",
+            "mainstepname": "list",
+            "pagename": "results::standard::list",
+            "datefieldempty": false,
+            "loyaltycardtypes": "",
+            "searchcriteriareservercontract": "",
+            "searchcriteriareserverid": "",
+            "searchcriterianumberadult": 1,
+            "searchcriterianumberchildren": 0,
+            "searchcriterianumbernights": 8,
+            "searchcriterianumberrooms": 1,
+            "searchcriteriatype": "neighborhood",
+            "numberofresults": 1,
+            "searchresultsclassification": [
+                "PREFERRED",
+                "AVAILABILITY",
+                "CHANNEL",
+                "DISTANCE"
+            ]
+        },
+        "eventTimeout": 2000,
+        "gtm.uniqueEventId": 180
+    },
+    {
+        "event": "seenaptic",
+        "gtm.uniqueEventId": 329
+    },
+    {
+        "event": "pageViewFired",
+        "gtm.uniqueEventId": 332
+    },
+    {
+        "gaReady": "yes"
+    },
+    {
+        "event": "experience_impression",
+        "exp_variant_string": "KAM-326771-1155058",
+        "kam_campaign_name": "LR: cookie go NGA (PROD)",
+        "kam_campaign_id": 326771,
+        "kam_variation_name": "Variation 1",
+        "kam_variation_id": 1155058,
+        "gtm.uniqueEventId": 600
+    }
+]
+    </script>
 
-        
+    <script>
+        (function () {
+    const pollEveryMS = 1000; // Check every 1 sec
+    const maxWaitTimeMS = 20000; // Max wait time before any found fields are submitted to Quiq: 20 seconds
 
+    let hotelName = null;
+    let checkInDate = null;
+    let checkOutDate = null;
+    let timeoutReached = false;
 
-        function extractBrandFromHostname(hostname) {
-          // Extract brand name/conversation starter from hostname
-          // production/staging sites
-          const parts = hostname.split('.com')[0]?.split('.');
-          const cleanHostname = parts[parts.length - 1];
-        
-          const brandMap = {
-            'urbanoutfitters': 'urban-outfitters',
-            'anthropologie': 'anthropologie',
-            'freepeople': 'free-people',
-            'shopterrain': 'terrain'
-          };
-        
-          return brandMap[cleanHostname] || '';
+    function pollForHotelSearchParams() {
+        if (window.chat && window.dataLayer && Array.isArray(window.dataLayer)) {
+            for (let i = 0; i < window.dataLayer.length; i++) {
+                const dlItem = window.dataLayer[i];
+
+                if (dlItem.hotelname && hotelName !== dlItem.hotelname) {
+                    hotelName = dlItem.hotelname;
+                }
+
+                if (dlItem.searchcriteriaarrivaldate && checkInDate !== dlItem.searchcriteriaarrivaldate) {
+                    checkInDate = dlItem.searchcriteriaarrivaldate;
+                }
+
+                if (dlItem.searchcriteriadeparturedate && checkOutDate !== dlItem.searchcriteriadeparturedate) {
+                    checkOutDate = dlItem.searchcriteriadeparturedate;
+                }
+            }
+
+            if ((hotelName && checkInDate && checkOutDate) || timeoutReached) {
+                console.log("Sending hotel information to Quiq:", {
+                    hotelName,
+                    checkInDate,
+                    checkOutDate
+                });
+
+                if (hotelName) {
+                    window.chat.setChatRegistrationField('schema.conversation.custom.paiHotelName', hotelName);
+                }
+                if (checkInDate) {
+                    window.chat.setChatRegistrationField('schema.conversation.custom.paiCheckInDate', checkInDate);
+                }
+                if (checkOutDate) {
+                    window.chat.setChatRegistrationField('schema.conversation.custom.paiCheckoutDate', checkOutDate);
+                }
+
+                return; // Stop polling
+            }
         }
-        
-        function extractLangLocale(pathname) {
-          // Match lang-locale pattern immediately after .com/
-          // Handles both /en-gb/ and /en-gb
-          const localeMatch = pathname.match(/^\/([a-z]{2}-[a-z]{2})(?:\/|$)/i);
-        
-          if (localeMatch) {
-            const fullLocale = localeMatch[1].toLowerCase();
-            const lang = fullLocale.split('-')[0];
-            const locale = fullLocale.split('-')[1];
-        
-            return {
-              lang: lang,
-              locale: locale
-            };
-          }
-        
-          return {
-            lang: 'en',
-            locale: 'us'
-          };
-        }
-        
-        
-        // const brand = extractBrandFromHostname(window.location.hostname); // bberd.github.io
-        const brand = extractBrandFromHostname('staging3.anthropologie.com'); // www.urbanoutfitters.com https://staging3.freepeople.com/
-        // const { lang, locale } = extractLangLocale(window.location.pathname); // /quiq/index.html
-        const { lang, locale } = extractLangLocale('/es-gb/productpage/2342'); // /en-gb   ''   /en-gb/productpage/2342
-        console.log('Loading conversation starter for URL:', brand, lang, locale );
-        
-        
-        let chat = Quiq({ pageConfigurationId: brand });
-        chat.setChatRegistrationField('schema.conversation.custom.brand', brand);
-        chat.setChatRegistrationField('schema.conversation.customer.preferredLanguage', lang);
-        chat.setChatRegistrationField('schema.conversation.custom.locale', locale);
-        const customerEmail = 'boris@quiq.com'
-        if (customerEmail) chat.setChatRegistrationField('schema.conversation.customer.email', customerEmail);
-        // chat.show()
 
+        if (!timeoutReached) setTimeout(pollForHotelSearchParams, pollEveryMS);
+    }
 
-        
-     </script>
+    setTimeout(() => {
+        timeoutReached = true;
+    }, maxWaitTimeMS);
+
+    pollForHotelSearchParams();
+})();
+
+    </script>
+
      quiq test page v1.0.5
 </body>
 </html>
