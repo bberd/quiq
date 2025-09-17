@@ -436,6 +436,8 @@
     let numRooms = null;
     let timeoutReached = false;
 
+    const num = maybe_num => typeof maybe_num === 'number'
+
     function pollForHotelSearchParams() {
         if (window.chat && window.dataLayer && Array.isArray(window.dataLayer)) {
             for (let i = 0; i < window.dataLayer.length; i++) {
@@ -450,21 +452,21 @@
                 if (dlItem.searchcriteriadeparturedate && checkOutDate !== dlItem.searchcriteriadeparturedate) {
                     checkOutDate = dlItem.searchcriteriadeparturedate;
                 }
-                if (typeof dlItem.searchcriterianumbernights === 'number' && numNights !== dlItem.searchcriterianumbernights) {
+                if (num(dlItem.searchcriterianumbernights) && numNights !== dlItem.searchcriterianumbernights) {
                     numNights = dlItem.searchcriterianumbernights;
                 }
-                if (typeof dlItem.searchcriterianumberadult === 'number' && numAdults !== dlItem.searchcriterianumberadult) {
+                if (num(dlItem.searchcriterianumberadult) && numAdults !== dlItem.searchcriterianumberadult) {
                     numAdults = dlItem.searchcriterianumberadult;
                 }
-                if (typeof dlItem.searchcriterianumberchildren === 'number' && numKids !== dlItem.searchcriterianumberchildren) {
+                if (num(dlItem.searchcriterianumberchildren) && numKids !== dlItem.searchcriterianumberchildren) {
                     numKids = dlItem.searchcriterianumberchildren;
                 }
-                if (typeof dlItem.searchcriterianumberrooms === 'number' && numRooms !== dlItem.searchcriterianumberrooms) {
+                if (num(dlItem.searchcriterianumberrooms) && numRooms !== dlItem.searchcriterianumberrooms) {
                     numRooms = dlItem.searchcriterianumberrooms;
                 }
             }
 
-            if ((hotelName && checkInDate && checkOutDate && numNights && numAdults && numKids & numRooms) || timeoutReached) {
+            if ((hotelName && checkInDate && checkOutDate && num(numNights) && num(numAdults) && num(numKids) & num(numRooms)) || timeoutReached) {
                 console.log("Sending hotel information to Quiq:", {
                     hotelName,
                     checkInDate,
@@ -484,16 +486,16 @@
                 if (checkOutDate) {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiCheckoutDate', checkOutDate);
                 }
-                if (typeof numNights === 'number') {
+                if (num(numNights)) {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumNights', numNights);
                 }
-                if (typeof numAdults === 'number') {
+                if (num(numAdults)) {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumAdults', numAdults);
                 }
-                if (typeof numKids === 'number') {
+                if (num(numKids)) {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumKids', numKids);
                 }
-                if (typeof numRooms === 'number') {
+                if (num(numRooms)) {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumRooms', numRooms);
                 }
 
@@ -513,6 +515,6 @@
 
     </script>
 
-     quiq test page v1.0.14
+     quiq test page v1.0.15
 </body>
 </html>
