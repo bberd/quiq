@@ -450,16 +450,16 @@
                 if (dlItem.searchcriteriadeparturedate && checkOutDate !== dlItem.searchcriteriadeparturedate) {
                     checkOutDate = dlItem.searchcriteriadeparturedate;
                 }
-                if (dlItem.searchcriterianumbernights && typeof dlItem.searchcriterianumbernights === 'number' && numNights !== dlItem.searchcriterianumbernights) {
+                if (typeof dlItem.searchcriterianumbernights === 'number' && numNights !== dlItem.searchcriterianumbernights) {
                     numNights = dlItem.searchcriterianumbernights;
                 }
-                if (dlItem.searchcriterianumberadult && typeof dlItem.searchcriterianumberadult === 'number' && numAdults !== dlItem.searchcriterianumberadult) {
+                if (typeof dlItem.searchcriterianumberadult === 'number' && numAdults !== dlItem.searchcriterianumberadult) {
                     numAdults = dlItem.searchcriterianumberadult;
                 }
-                if (dlItem.searchcriterianumberchildren && typeof dlItem.searchcriterianumberchildren === 'number' && numKids !== dlItem.searchcriterianumberchildren) {
+                if (typeof dlItem.searchcriterianumberchildren === 'number' && numKids !== dlItem.searchcriterianumberchildren) {
                     numKids = dlItem.searchcriterianumberchildren;
                 }
-                if (dlItem.searchcriterianumberrooms && typeof dlItem.searchcriterianumberrooms === 'number' && numRooms !== dlItem.searchcriterianumberrooms) {
+                if (typeof dlItem.searchcriterianumberrooms === 'number' && numRooms !== dlItem.searchcriterianumberrooms) {
                     numRooms = dlItem.searchcriterianumberrooms;
                 }
             }
@@ -513,6 +513,6 @@
 
     </script>
 
-     quiq test page v1.0.13
+     quiq test page v1.0.14
 </body>
 </html>
