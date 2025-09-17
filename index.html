@@ -484,16 +484,16 @@
                 if (checkOutDate) {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiCheckoutDate', checkOutDate);
                 }
-                if (numNights) {
+                if (typeof numNights === 'number') {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumNights', numNights);
                 }
-                if (numAdults) {
+                if (typeof numAdults === 'number') {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumAdults', numAdults);
                 }
-                if (numKids) {
+                if (typeof numKids === 'number') {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumKids', numKids);
                 }
-                if (numRooms) {
+                if (typeof numRooms === 'number') {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumRooms', numRooms);
                 }
 
@@ -513,6 +513,6 @@
 
     </script>
 
-     quiq test page v1.0.12
+     quiq test page v1.0.13
 </body>
 </html>
