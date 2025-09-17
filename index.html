@@ -450,16 +450,16 @@
                 if (dlItem.searchcriteriadeparturedate && checkOutDate !== dlItem.searchcriteriadeparturedate) {
                     checkOutDate = dlItem.searchcriteriadeparturedate;
                 }
-                if (dlItem.searchcriterianumbernights && numNights !== dlItem.searchcriterianumbernights) {
+                if (dlItem.searchcriterianumbernights && typeof dlItem.searchcriterianumbernights === 'number' && numNights !== dlItem.searchcriterianumbernights) {
                     numNights = dlItem.searchcriterianumbernights;
                 }
-                if (dlItem.searchcriterianumberadult && numAdults !== dlItem.searchcriterianumberadult) {
+                if (dlItem.searchcriterianumberadult && typeof dlItem.searchcriterianumberadult === 'number' && numAdults !== dlItem.searchcriterianumberadult) {
                     numAdults = dlItem.searchcriterianumberadult;
                 }
-                if (dlItem.searchcriterianumberchildren && numKids !== dlItem.searchcriterianumberchildren) {
+                if (dlItem.searchcriterianumberchildren && typeof dlItem.searchcriterianumberchildren === 'number' && numKids !== dlItem.searchcriterianumberchildren) {
                     numKids = dlItem.searchcriterianumberchildren;
                 }
-                if (dlItem.searchcriterianumberrooms && numRooms !== dlItem.searchcriterianumberrooms) {
+                if (dlItem.searchcriterianumberrooms && typeof dlItem.searchcriterianumberrooms === 'number' && numRooms !== dlItem.searchcriterianumberrooms) {
                     numRooms = dlItem.searchcriterianumberrooms;
                 }
             }
@@ -513,6 +513,6 @@
 
     </script>
 
-     quiq test page v1.0.11
+     quiq test page v1.0.12
 </body>
 </html>
