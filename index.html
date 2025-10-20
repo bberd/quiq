@@ -427,14 +427,29 @@
     const pollEveryMS = 1000; // Check every 1 sec
     const maxWaitTimeMS = 20000; // Max wait time before any found fields are submitted to Quiq: 20 seconds
 
-    let hotelName = '';
+    let hotelName = null;
     let checkInDate = null;
     let checkOutDate = null;
     let numNights = null;
     let numAdults = null;
     let numKids = null;
     let numRooms = null;
+    let preferredLanguage = null;
     let timeoutReached = false;
+
+    // Extract language from URL if it follows /booking format
+    function extractLanguageFromURL() {
+        const url = 'https://all.accor.com/booking/fr/accor/hotel/7327?destination=aeroport-orly-1-2-3-94390-paray-vieille-poste-france&compositions=1&dateIn=2025-10-13&dateOut=2025-10-14&nights=1&hideWDR=false&accessibleRoom=false' //window.location.href;
+        const bookingMatch = url.match(/\/booking\/([a-z]{2})\//i);
+        if (bookingMatch && bookingMatch[1]) {
+            return bookingMatch[1];
+        }
+        return null;
+    }
+
+    // Get language on initialization
+    preferredLanguage = extractLanguageFromURL();
+    console.log('preferredLanguage:', preferredLanguage);
 
     const num = maybe_num => typeof maybe_num === 'number'
 
@@ -474,7 +489,8 @@
                     numNights,
                     numAdults,
                     numKids,
-                    numRooms
+                    numRooms,
+                    preferredLanguage
                 });
 
                 if (hotelName) {
@@ -498,6 +514,9 @@
                 if (num(numRooms)) {
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumRooms', numRooms);
                 }
+                if (preferredLanguage) {
+                    window.chat.setChatRegistrationField('schema.conversation.customer.preferredLanguage', preferredLanguage);
+                }
 
                 return; // Stop polling
             }
@@ -512,6 +531,7 @@
 
     pollForHotelSearchParams();
 })();
+
 
     </script>
 
