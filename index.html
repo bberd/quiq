@@ -439,17 +439,15 @@
 
     // Extract language from URL if it follows /booking format
     function extractLanguageFromURL() {
-        const url = 'https://all.accor.com/booking/fr/accor/hotel/7327?destination=aeroport-orly-1-2-3-94390-paray-vieille-poste-france&compositions=1&dateIn=2025-10-13&dateOut=2025-10-14&nights=1&hideWDR=false&accessibleRoom=false' //window.location.href;
-        const bookingMatch = url.match(/\/booking\/([a-z]{2})\/accor\/hotel/i);
+        const url = window.location.href;
+        const bookingMatch = url.match(/\/booking\/([a-z])\/accor\/hotel/i);
         if (bookingMatch && bookingMatch[1]) {
             return bookingMatch[1];
         }
         return null;
     }
 
-    // Get language on initialization
     preferredLanguage = extractLanguageFromURL();
-    console.log('preferredLanguage:', preferredLanguage);
 
     const num = maybe_num => typeof maybe_num === 'number'
 
@@ -515,7 +513,8 @@
                     window.chat.setChatRegistrationField('schema.conversation.custom.paiNumRooms', numRooms);
                 }
                 if (preferredLanguage) {
-                    window.chat.setChatRegistrationField('conversation.customer.preferredLanguage', 'it');
+                    console.log('preferredLanguage:', preferredLanguage);
+                    window.chat.setChatRegistrationField('schema.conversation.customer.preferredLanguage', preferredLanguage);
                 }
 
                 return; // Stop polling
@@ -535,6 +534,6 @@
 
     </script>
 
-     quiq test page v1.0.18
+     quiq test page v1.0.19
 </body>
 </html>
